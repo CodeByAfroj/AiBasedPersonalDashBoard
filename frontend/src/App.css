@@ -1,0 +1,134 @@
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.phone{
+  background-image: url("D:\secondbrain\frontend\src\assets\login.jpg");
+}
+
+
+
+
+/* In your global CSS file (e.g., index.css or App.css) */
+@keyframes gradient-slide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-slide 3s linear infinite;
+}
+
+
+@keyframes shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(203, 213, 225, 0) 0%,   /* gray-200 transparent */
+    rgba(203, 213, 225, 0.5) 50%, /* gray-200 semi-transparent */
+    rgba(203, 213, 225, 0) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 2.5s infinite;
+}
+
+
+
+.diagram-container {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+.node {
+  width: 120px;
+  height: 50px;
+  border: 1px solid #333;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: white;
+  cursor: move;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.node-label {
+  flex-grow: 1;
+  cursor: move;
+}
+
+.delete-btn {
+  width: 20px;
+  height: 20px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.toolbar {
+  margin-bottom: 10px;
+}
+.import-label {
+  margin-left: 10px;
+  cursor: pointer;
+}

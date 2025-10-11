@@ -1,5 +1,5 @@
 
-import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
+import {HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Signin from "./pages/Signin";
 import Dashboard from "./pages/Dashboard";
 import Userdash from "./pages/Userdash";
@@ -16,7 +16,7 @@ export default function App() {
 
 
   return (
- <BrowserRouter>
+ <Router>
  <Nav/>
       <Routes>
         <Route path="/" element={<Home/> } />
@@ -26,7 +26,7 @@ export default function App() {
         <Route path="/user-dash" element={<Userdash />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
- </BrowserRouter> 
+ </Router> 
   );
 }
  

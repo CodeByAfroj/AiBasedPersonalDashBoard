@@ -13,8 +13,12 @@ import router from "./timelineRouter.js";
 const app = express();
 app.use(express.json());
 
+const alloworigin = [
+  "https://aibasedpersonaldashboard.onrender.com",
+   "http://localhost:5173"
+]
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: alloworigin,
   credentials: true,
 }));
 

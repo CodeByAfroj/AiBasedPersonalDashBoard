@@ -17,7 +17,7 @@ export default function Signin() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:3000/api/v1/signin", {
+      const res = await fetch("https://dashboard-backend-9i5l.onrender.com/api/v1/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

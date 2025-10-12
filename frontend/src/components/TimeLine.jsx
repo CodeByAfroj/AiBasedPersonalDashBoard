@@ -1159,7 +1159,7 @@ import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiPlus, FiEdit, FiTrash2, FiSun, FiMoon } from "react-icons/fi";
 
-const API_BASE = "http://localhost:3000/api";
+const API_BASE = "https://dashboard-backend-9i5l.onrender.com/api";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },

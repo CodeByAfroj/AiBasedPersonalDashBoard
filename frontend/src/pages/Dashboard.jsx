@@ -329,7 +329,7 @@ export default function Dashboard() {
     if (!token) return;
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/v1/dashboard", {
+        const res = await axios.get("https://dashboard-backend-9i5l.onrender.com/api/v1/dashboard", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserData(res.data);
@@ -352,7 +352,7 @@ export default function Dashboard() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/viewall", {
+      const res = await axios.get("https://dashboard-backend-9i5l.onrender.com/api/viewall", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setData(res.data);
@@ -364,7 +364,7 @@ export default function Dashboard() {
   const handleCreate = async (title, desc, link) => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/create",
+        "https://dashboard-backend-9i5l.onrender.com/api/create",
         { title, desc, link },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -376,7 +376,7 @@ export default function Dashboard() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/delete/${id}`, {
+      await axios.delete(`https://dashboard-backend-9i5l.onrender.com/api/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setData((prev) => prev.filter((item) => item._id !== id));
@@ -388,7 +388,7 @@ export default function Dashboard() {
   const handleUpdate = async (id, updatedData) => {
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/update/${id}`,
+        `https://dashboard-backend-9i5l.onrender.com/api/update/${id}`,
         updatedData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

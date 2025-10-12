@@ -18,7 +18,7 @@ const AdminDash = () => {
 
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/v1/admin-dashboard", {
+        const res = await axios.get("https://dashboard-backend-9i5l.onrender.com/api/v1/admin-dashboard", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

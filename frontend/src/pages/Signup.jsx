@@ -38,7 +38,7 @@ export default function Signup({ onSignupSuccess }) {
 
     try {
       const res = await axios.post(
-        "https://loginsystem-bsye.onrender.com/api/v1/signup",
+        "http://localhost:3000/api/v1/signup",
         { username: email, password },
         { headers: { "Content-Type": "application/json" } }
       );

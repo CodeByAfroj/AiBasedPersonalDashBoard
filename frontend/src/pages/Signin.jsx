@@ -1,3 +1,6 @@
+// 
+
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +17,7 @@ export default function Signin() {
     setError("");
 
     try {
-      const res = await fetch("https://loginsystem-bsye.onrender.com/api/v1/signin", {
+      const res = await fetch("http://localhost:3000/api/v1/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -22,9 +25,19 @@ export default function Signin() {
 
       const data = await res.json();
 
-      if (data.token) {
+      console.log("Signin response:", data); // debug the response
+
+      if (res.ok && data.user && data.token) {
+        // save token and role safely
         localStorage.setItem("token", data.token);
-        navigate("/dashboard"); // redirect after login
+        localStorage.setItem("role", data.user.role || "user"); // fallback to 'user'
+
+        // role-based redirect
+        if (data.user.role === "admin") {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/dashboard");
+        }
       } else {
         setError(data.message || "Invalid credentials");
       }
@@ -41,9 +54,6 @@ export default function Signin() {
       onSubmit={handleSignin}
       className="flex flex-col gap-6 bg-white p-8 rounded-2xl shadow-lg w-full max-w-md mx-auto"
     >
-    
-
-      {/* Username Input */}
       <input
         type="text"
         placeholder="Username"
@@ -53,7 +63,6 @@ export default function Signin() {
         className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-400 shadow-sm"
       />
 
-      {/* Password Input */}
       <input
         type="password"
         placeholder="Password"
@@ -63,7 +72,6 @@ export default function Signin() {
         className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-400 shadow-sm"
       />
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={loading}
@@ -72,7 +80,6 @@ export default function Signin() {
         {loading ? "Signing In..." : "Sign In"}
       </button>
 
-      {/* Error Message */}
       {error && <p className="text-red-500 text-center text-sm mt-2">{error}</p>}
     </form>
   );

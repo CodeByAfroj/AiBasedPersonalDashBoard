@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import { useState } from "react";
 import Nav from "./pages/Nav";
+import AdminDash from "./pages/AdminDash";
 // Signin Component
 
 
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/login" element={<Signin />} />
         <Route path="/register" element={<Signup />} />
         <Route path="/user-dash" element={<Userdash />} />
+        <Route path="/admin-dashboard" element={<AdminDash />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
  </Router> 

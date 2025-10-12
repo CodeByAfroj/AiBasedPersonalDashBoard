@@ -1,12 +1,17 @@
 import type { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = "123123"; // replace with process.env.JWT_SECRET
+const JWT_SECRET = process.env.JWT_SECRET || "123123";
+ // replace with process.env.JWT_SECRET
 
 export interface AuthRequest extends Request {
-  userId?: string;
-  username?:string;
+  user?: {
+    id: string;
+    username: string;
+    role: string;
+  };
 }
+
 
 export function authMiddleware(
   req: AuthRequest,
@@ -29,11 +34,24 @@ export function authMiddleware(
 
   try {
     // Cast to unknown first to satisfy TypeScript
-    const decoded = jwt.verify(token, JWT_SECRET) as unknown as { id: string ,username:string};
-    req.userId = decoded.id;
-  req.username = decoded.username;
+    const decoded = jwt.verify(token, JWT_SECRET) as unknown as { id: string ,username:string,role:string};
+     req.user = {
+       id: decoded.id,
+       username: decoded.username,
+       role: decoded.role,
+};
+
     next();
   } catch (err) {
     res.status(403).json({ message: "Invalid token" });
   }
 }
+
+export const isAdmin = (req: AuthRequest, res: Response, next: NextFunction): void => {
+  if (req.user?.role !== "admin") {
+    res.status(403).json({ message: "Access denied: Admins only" });
+    return;
+  }
+  next();
+};
+

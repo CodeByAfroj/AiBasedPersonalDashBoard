@@ -2,7 +2,11 @@
 
 ## Overview
 This project is an AI-based personal dashboard that integrates both frontend and backend components. It is designed to provide users with a seamless experience for managing their personal data and tasks effectively.
-
+---
+<img src="frontend/src/assets/login.png" width="800" />
+---
+<img src="frontend/src/assets/homepage.png" width="800" />
+---
 ## Features
 - **User Authentication:** Secure login and registration process.
 - **Data Visualization:** Interactive charts and graphs to represent users' data.

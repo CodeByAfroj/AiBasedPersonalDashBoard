@@ -52,7 +52,7 @@ This project is licensed under the MIT License.
 ## Author
 **CodeByAfroj**  
 *Date: 2026-02-27*  
-*Contact: <your_email@example.com>*  
+*Contact: <mulaniafroj6@gmail.com>*  
 
 ---  
 This README was created to provide a professional overview of the AI-based personal dashboard project.

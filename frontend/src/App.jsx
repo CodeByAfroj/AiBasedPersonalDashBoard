@@ -5,8 +5,6 @@ import Dashboard from "./pages/Dashboard";
 import Userdash from "./pages/Userdash";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
-import { useState } from "react";
-import Nav from "./pages/Nav";
 import AdminDash from "./pages/AdminDash";
 // Signin Component
 
@@ -18,7 +16,6 @@ export default function App() {
 
   return (
  <Router>
- <Nav/>
       <Routes>
         <Route path="/" element={<Home/> } />
         <Route path="/dashboard" element={<Dashboard />} />
